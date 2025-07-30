@@ -1,0 +1,25 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:: --- Verificar Permisos de Administrador ---
+NET SESSION >NUL 2>&1
+IF %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo Este script necesita ejecutarse como ADMINISTRADOR.
+    echo Por favor, haga clic derecho en el archivo y seleccione "Ejecutar como administrador".
+    echo.
+    pause
+    EXIT /B 1
+)
+
+echo Script iniciado con permisos de ADMINISTRADOR.
+echo.
+
+:: --- La Logica de tu Script Va Aqui ---
+echo ¡Hola desde el script!
+echo Este script se cerrara automaticamente en 7 segundos...
+timeout /t 7 >NUL
+
+:: --- Comando para Auto-Cerrar ---
+EXIT /B 0
+
